@@ -1,0 +1,11 @@
+Run the following commands:
+1)  cd Flask/env/Scripts
+2)  .\activate or activate
+3)  cd ../..
+4)  python -m pip install Flask (if not installed flask)
+5)  python app.py
+
+For Tailwind CSS changes:
+1) Open another terminal
+2) cd Flask
+3) npx tailwindcss -i ./static/src/main.css -o ./static/dist/main.css --watch
