@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <nav class="bg-gradient-to-r from-blue to-orange px-2 sm:px-4 py-2.5 fixed w-full z-20 top-0 left-0 border-b border-gray-100">
+    <nav
+        class="bg-gradient-to-r from-blue to-orange 2xl:w-4/5 mx-auto px-2 sm:px-4 py-2.5 2xl:relative fixed w-full top-0 border-b border-gray-100">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
             <a href="https://flowbite.com/" class="flex items-center">
                 <span class="self-center text-xl font-semibold whitespace-nowrap">Project</span>
@@ -73,36 +74,31 @@
             </div>
         </div>
     </nav>
-    <section class='h-screen w-full overflow-y-hidden bg-gradient-to-r from-blue to-orange'>
+    <section class='h-screen 2xl:w-4/5 mx-auto w-full md:overflow-y-hidden mt-10 bg-gradient-to-r from-blue to-orange'>
 
-        <div class='flex flex-col sm:flex-row px-4 sm:px-16 lg:py-16 w-full h-full py-4 sm:py-8'>
-            <div class='w-full sm:w-1/2 text-left h-full '>
-                <h1 class='w-4/5 font-bold text-3xl my-4 md:text-4xl lg:text-5xl 2xl:text-6xl text-white'>
+        <div class='flex flex-col md:flex-row px-4 sm:px-16 lg:py-16 w-full h-full py-4 sm:py-8'>
+            <div class='w-full md:w-1/2 text-left h-full '>
+                <h1 class='w-full md:w-4/5 font-bold text-3xl my-4 md:text-4xl lg:text-5xl 2xl:text-6xl text-white'>
                     BERT-Disaster-Prediction-Model-using-Twitter-Data</h1>
-                <p class='w-full text-white text-lg sm:text-xl 2xl:text-4xl'>Tempor rebum no at
+                <p class='w-full text-white text-lg sm:text-xl my-12 2xl:text-4xl'>Tempor rebum no at
                     dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea
                     diam.
                     Sit diam sit justo amet ipsum vero ipsum clita lorem</p>
                 <div>
-                    <a href="{{ url_for('predict') }}"><button
-                        class="px-6 py-3 mt-2 mb-2 2xl:text-3xl text-white rounded-md outline-none bg-transparent border font-bold border-white hover:bg-white hover:text-blue">Go
-                        To Predict
-                    </button> </a>
+                    <a href="{{ url_for('predictPage') }}"><button
+                            class="px-6 py-3 mt-2 mb-2 2xl:text-3xl text-white rounded-md outline-none bg-transparent border font-bold border-white hover:bg-white hover:text-blue">Go
+                            To Predict
+                        </button> </a>
                 </div>
             </div>
-            <div class='w-full items-center content-center justify-center sm:w-1/2 h-full'>
-                <div class='w-full h-full'>
-                    <img src='' class='sm:absolute sm:z-20 w-full sm:w-1/2 h-auto' />
-
+            <div class='w-full items-center content-center justify-center md:w-1/2 h-full'>
+                <div class='w-full relative h-full'>
+                    <img src="{{url_for('static', filename='assets/new.png')}}" alt="Image"
+                        class='w-full sm:absolute sm:z-20 w-full sm:w-full h-auto' />
                 </div>
-
             </div>
+
         </div>
-        <!-- <svg class='w-full h-auto bottom-0 ' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffffff" fill-opacity="1"
-                d="M0,128L48,128C96,128,192,128,288,144C384,160,480,192,576,197.3C672,203,768,181,864,144C960,107,1056,53,1152,42.7C1248,32,1344,64,1392,80L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-            </path>
-        </svg> -->
     </section>
     <script src="{{url_for('static', filename='styles/style.js')}}"></script>
 </body>

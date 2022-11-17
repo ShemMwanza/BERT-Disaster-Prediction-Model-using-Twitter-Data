@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/main.css')}}">
+</head>
+
+<body class='h-screen w-full bg-gradient-to-r from-blue to-orange'>
+
+    <section id="content" role="main" class="w-full h-full max-w-md mx-auto p-6">
+        <div class="mt-10 bg-gray w-full rounded-xl shadow-lg bg-opacity-25">
+            <div class="p-4 sm:p-7">
+                <div class="text-center">
+                    <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Enter Keyword to Fetch Tweets
+                    </h1>
+                </div>
+
+                <div class="mt-5">
+                    <form action="http://localhost:5000/predict" method="post">
+                        <div class="grid gap-y-4">
+                            <div>
+                                <div class="relative">
+                                    <input type="text" placeholder="Search" name="search"
+                                        class="py-3 px-4 block w-full border-2 border-gray rounded-md text-sm focus:border-blue ring-2 outline-none focus:ring-blue shadow-sm"
+                                        required>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="py-3 px-4 space-evenly inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray">
+                                Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
