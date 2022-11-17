@@ -11,14 +11,6 @@ body {
     font-weight: 100;
 }
 
-/* .div_class {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-} */
-
 table {
     width: 100%;
     table-layout: auto;
@@ -40,6 +32,7 @@ th {
 
 thead th {
     background-color: #55608f;
+    opacity: .9;
 }
 
 
