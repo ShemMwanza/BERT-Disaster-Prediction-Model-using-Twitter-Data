@@ -102,5 +102,25 @@ def success(query):
 	# time.sleep(10)
 	return render_template('result.html', results = results)
 
+@app.route('/stringpredict')
+def stringPredictPage():
+    return render_template('stringPredict.html')
+@app.route('/stringpredict', methods=['POST', 'GET'])
+def stringpredict():
+	if request.method == 'POST':
+		string = request.form['strings']
+		df = pd.DataFrame([string], columns=['text'])
+		df['text'] = df['text'].apply(lambda x: remove_URLs(x))
+		df['text'] = df['text'].apply(lambda x: remove_emojis(x))
+		df['text'] = df['text'].apply(lambda x: remove_html_data(x))
+		df['text'] = df['text'].apply(lambda x: remove_punctuations(x))
+		df['predict'] = predict(model,df['text'].values,1)
+		if (df['predict'].values == 1 ):
+			result = 'This is a Disaster tweet'
+		else:
+			result = 'This is not a Disaster Tweet'
+		
+		return render_template('stringPredict.html', result= result)
+
 if __name__ == '__main__':
 	app.run(debug=True)
