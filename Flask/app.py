@@ -13,31 +13,31 @@ import pandas as pd
 from torch.optim import lr_scheduler
 from csv import reader
 from werkzeug.utils import secure_filename
-import os
-import sched, time
-s = sched.scheduler(time.time, time.sleep)
 
 app = Flask(__name__)
-IMG_FOLDER = os.path.join('assets')
 
-app.config['FOLDER'] = IMG_FOLDER
 
-class BertClassifier(nn.Module):
+class DistilBertClass(nn.Module):
 
-  def __init__(self, bert):
-    super(BertClassifier, self).__init__()
-    self.bert = bert
-    self.drop = nn.Dropout(0.5)
+  def __init__(self, distilbert):
+    super(DistilBertClass, self).__init__()
+    self.distilbert = distilbert
+    self.out_1 = nn.Linear(768, 768)
+    self.dropout = nn.Dropout(0.5)
     self.relu = nn.ReLU()
-    self.out = nn.Linear(self.bert.config.hidden_size, 2)
+    self.out = nn.Linear(768, 2)
 
   def forward(self, input_ids, mask):
-    _, pooled_output = self.bert(input_ids, attention_mask=mask, return_dict=False)
-    output = self.drop(pooled_output)
-    output= self.out(output)
-    return self.relu(output)
+    pooled_output = self.distilbert(input_ids=input_ids, attention_mask=mask)
+    hidden_state = pooled_output[0]
+    pooler = hidden_state[:, 0]
+    pooler = self.out_1(pooler)
+    pooler = self.relu(pooler)
+    pooler = self.dropout(pooler)
+    output = self.out(pooler)
+    return output
 
-model = torch.load('./Model/model.bin')
+model = torch.load('./Model/Distil_model.bin')
 #Declaring of hyperparameters
 batch_size = 32
 
