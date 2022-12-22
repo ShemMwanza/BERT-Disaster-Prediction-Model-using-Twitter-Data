@@ -12,18 +12,19 @@
 
 <body>
     <nav
-        class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+        class="bg-gradient-to-r from-blue to-orange 2xl:w-4/5 mx-auto px-2 sm:px-4 py-2.5 2xl:relative fixed w-full top-0 border-b border-gray-100">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
             <a href="https://flowbite.com/" class="flex items-center">
-                <span class="self-center text-xl font-semibold whitespace-nowrap">Project</span>
+                <span class="self-center text-xl text-white font-semibold whitespace-nowrap">IS Project</span>
             </a>
             <div class="flex md:order-2">
-                <button type="button"
+                <a href="{{ url_for('predictPage') }}"><button type="button"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get
                     started</button>
-                    <!-- Open button -->
+                </a>
+                <!-- Open button -->
                 <button id="menu-btn" onclick="openMenu()" data-collapse-toggle="navbar-menu" type="button"
-                    class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200   dark:focus:ring-gray-600"
                     aria-controls="navbar-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -35,7 +36,7 @@
                 </button>
                 <!-- Close button -->
                 <button id="menu-btn1" onclick="closeMenu()" data-collapse-toggle="navbar-menu" type="button"
-                    class="hidden items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    class="hidden items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200   dark:focus:ring-gray-600"
                     aria-controls="navbar-menu" aria-expanded="false">
                     <span class="sr-only">Close main menu</span>
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -54,28 +55,49 @@
             </div>
             <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-menu">
                 <ul
-                    class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    class="flex flex-col p-4 mt-4 bg-transparent rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                     <li>
-                        <a href="#"
-                            class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                        <a href="#" class="block py-2 pr-4 pl-3 text-white rounded md:bg-transparent md:p-0"
                             aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                        <a href="{{ url_for('predictPage') }}" class="block py-2 pr-4 pl-3 text-white rounded md:p-0">Fetch</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                        <a href="{{ url_for('stringPredictPage') }}"
+                            class="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0">Predict</a>
                     </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-                    </li>
+
                 </ul>
             </div>
         </div>
     </nav>
+    <section class='h-screen 2xl:w-4/5 mx-auto w-full md:overflow-y-hidden mt-10 bg-gradient-to-r from-blue to-orange'>
+
+        <div class='flex flex-col md:flex-row px-4 sm:px-16 lg:py-16 w-full h-full py-4 sm:py-8'>
+            <div class='w-full md:w-1/2 text-left h-full '>
+                <h1 class='w-full md:w-4/5 font-bold text-3xl my-4 md:text-4xl lg:text-5xl 2xl:text-6xl text-white'>
+                    DistilBERT-Disaster-Prediction-Model-using-Twitter-Data</h1>
+                <p class='w-full text-white text-lg sm:text-xl my-12 2xl:text-4xl'>Tempor rebum no at
+                    dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea
+                    diam.
+                    Sit diam sit justo amet ipsum vero ipsum clita lorem</p>
+                <div>
+                    <a href="{{ url_for('predictPage') }}"><button
+                            class="px-6 py-3 mt-2 mb-2 2xl:text-3xl text-white rounded-md outline-none bg-transparent border font-bold border-white hover:bg-white hover:text-blue">Go
+                            To Predict
+                        </button> </a>
+                </div>
+            </div>
+            <div class='w-full items-center content-center justify-center md:w-1/2 h-full'>
+                <div class='w-full relative h-full'>
+                    <img src="{{url_for('static', filename='assets/new.png')}}" alt="Image"
+                        class='w-full sm:absolute sm:z-20 w-full sm:w-full h-auto' />
+                </div>
+            </div>
+
+        </div>
+    </section>
     <script src="{{url_for('static', filename='styles/style.js')}}"></script>
 </body>
 
