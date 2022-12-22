@@ -1,4 +1,4 @@
-# BERT-Disaster-Prediction-Model-using-Twitter-Data
+# DistilBERT-Disaster-Prediction-Model-using-Twitter-Data
 
 Disaster occurrences in Kenya have been a norm over the years, from landslides and floods to
 violence and spreading of diseases. These disasters have caused a dent in the economy and
@@ -9,7 +9,7 @@ be used to create a way for prediction of disasters.
 
 This project aims to provide a way of predicting disasters through use of Twitter data. The goal
 is to develop a model that will be able to predict disasters occurring using Twitter data. This
-model will be based on Bidirectional Encoder Representation from Transformers (BERT).
+model will be based on distilled Bidirectional Encoder Representation from Transformers (DistilBERT).
 BERT has a bidirectional nature that allows it to understand meaning of words based on context
 in any direction of the sequence of the words.
 
