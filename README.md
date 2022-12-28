@@ -35,7 +35,6 @@ v.	Making tweets to be lowercase
 # Tokenization
 Tokenization involves converting text input to tokens. After data cleaning, the next step in preprocessing is tokenization of the input texts. The tokenizer used was the DistilBert Tokenizer that works with DistilBert for tokenization tasks using the tokenizer.encode_plus() function. This function returned the actual input ids, the attention masks, and the token type ids in a dictionary but the token type ids are set to false because DistilBert does not require them.
 The first task was to insert the [CLS] token at the start and the [SEP] token at the end of each input text. The sentences are padded with [PAD] tokens until the total length equals the truncated maximum length. The maximum length of each sentence was set at 50 hence, padding is added in case sentences are shorter to make up the length.
-# Description of Training and Validation
 
 # Description of Model
 The model used in this project is DistilBERT Base uncased. It is a pretrained distilled version of the BERT model, but it is smaller, faster and requires less memory than BERT. The model is uncased thus does not make a difference between sentences in different cases. 
